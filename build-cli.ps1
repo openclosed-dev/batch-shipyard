@@ -2,7 +2,8 @@ $version = $(python -c 'from convoy import __version__; print(__version__)')
 $executableName = "batch-shipyard-${version}-cli-win-amd64.exe"
 
 $gitHash= $(git show --format='%h' --no-patch)
-$majorVersion, $minorVersion, $patchNumber = $version.split('.')
+$versionCore = $version.split('-')[0]
+$majorVersion, $minorVersion, $patchNumber = $versionCore.split('.')
 $buildNumber = 1
 $versionTuple =  [string]::Format("({0}, {1}, {2}, {3})", $majorVersion, $minorVersion, $patchNumber, $buildNumber)
 $branchGitSha1 = "${version}@${gitHash}"

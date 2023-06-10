@@ -99,3 +99,6 @@ resources/azurefile-dockervolumedriver.env
 resources/docker-registry-v2.tar.gz
 resources/nvidia-docker.*
 resources/nvidia-driver*.run
+
+# venv
+.venv/

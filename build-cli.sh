@@ -1,15 +1,10 @@
 #!/bin/bash
 
-ARTIFACT_VERSION=$(python -c 'from convoy import __version__; print(__version__)')
-ARTIFACT_CLI="batch-shipyard-${ARTIFACT_VERSION}-cli-linux-x86_64"
-ARTIFACT_CLI_PATH="dist/$ARTIFACT_CLI"
+version=$(python -c 'from convoy import __version__; print(__version__)')
 
-pyinstaller -F -n ${ARTIFACT_CLI} -p batch-shipyard \
-    --add-data federation/docker-compose.yml:federation --add-data heimdall:heimdall --add-data schemas:schemas --add-data scripts:scripts \
-    --exclude-module future.tests --exclude-module future.backports.test --exclude-module future.moves.test \
-    --distpath dist \
-    --clean \
-    shipyard.py
+ARTIFACT_VERSION=${version} pyinstaller --distpath dist --clean shipyard-cli-linux.spec
 
-chmod +x ${ARTIFACT_CLI_PATH}
-sha256sum ${ARTIFACT_CLI_PATH} | cut -d' ' -f1 > ${ARTIFACT_CLI_PATH}.sha256
+for filename in dist/*; do
+    chmod +x ${filename}
+    sha256sum ${filename} | cut -d' ' -f1 > ${filename}.sha256
+done

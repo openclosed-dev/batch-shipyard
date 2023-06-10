@@ -1586,10 +1586,14 @@ def _construct_pool_object(
         else:
             pec = None
         # add subnet, NAT rules, and public IPs
+        ipAddressProvisioningType = 'userManaged' if util.is_not_empty(pool_settings.public_ips) else 'noPublicIPAddresses'
         pool.network_configuration = batchmodels.NetworkConfiguration(
             subnet_id=subnet_id,
             endpoint_configuration=pec,
-            public_ips=pool_settings.public_ips,
+            public_ip_address_configuration=batchmodels.PublicIPAddressConfiguration(
+                provision=ipAddressProvisioningType,
+                ip_address_ids=pool_settings.public_ips
+            )
         )
     # storage env vars
     if not native or delay_image_preload:

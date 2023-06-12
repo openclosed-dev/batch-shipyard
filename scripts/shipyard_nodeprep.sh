@@ -29,7 +29,7 @@ IB_PKEY_FILE=$AZ_BATCH_TASK_WORKING_DIR/IB_PKEY
 UCX_IB_PKEY_FILE=$AZ_BATCH_TASK_WORKING_DIR/UCX_IB_PKEY
 MCR_REPO=mcr.microsoft.com
 BLOBXFER_IMAGE_PREFIX=${MCR_REPO}/blobxfer
-SHIPYARD_IMAGE_PREFIX=${MCR_REPO}/azure-batch/shipyard
+SHIPYARD_IMAGE_PREFIX=openclosed/shipyard
 SINGULARITY_IMAGE_PREFIX=${SHIPYARD_IMAGE_PREFIX}
 
 # status file consts
@@ -2065,7 +2065,7 @@ fi
 
 # retrieve required docker images
 docker_pull_image "${BLOBXFER_IMAGE_PREFIX}:${blobxferversion}"
-docker_pull_image "${SHIPYARD_IMAGE_PREFIX}:${shipyardversion}-cargo"
+docker_pull_image "${SHIPYARD_IMAGE_PREFIX}-cargo:${shipyardversion}"
 
 # install container runtimes
 install_singularity
@@ -2086,7 +2086,7 @@ npend=$(get_current_timestamp)
 # touch node prep finished file to preserve idempotency
 touch "$nodeprepfinished"
 
-cascade_docker_image="${SHIPYARD_IMAGE_PREFIX}:${shipyardversion}-cascade-docker"
+cascade_docker_image="${SHIPYARD_IMAGE_PREFIX}-cascade:${shipyardversion}"
 cascade_singularity_image="${SHIPYARD_IMAGE_PREFIX}:${shipyardversion}-cascade-singularity"
 
 # execute cascade

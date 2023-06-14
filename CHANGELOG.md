@@ -1,6 +1,35 @@
 # Change Log
 
-## [Unreleased]
+## [4.0.0rc1] - 2022-06-14
+### Added
+- Add CentOS 7.8 and Debian 10 support
+- Add Ubuntu 20.04 Support ([#363](https://github.com/Azure/batch-shipyard/issues/363))
+- Add Windows Server Datacenter-Core-20H2
+- Add Standard_Ncas_T4_v3 and Standard_NdasrA100_v4 support ([#370](https://github.com/Azure/batch-shipyard/issues/370))
+- Add CBL-D and ID_LIKE support for install
+
+### Changed
+- **Breaking Change:** Change `max_tasks_per_node` to `task_slots_per_node`
+- Forbid `default` for elastic slurm partition id
+- Update Docker CE to 20.10.8
+- Update GlusterFS to 9
+- Update and pin blobfuse to 1.4.1 ([#351](https://github.com/Azure/batch-shipyard/issues/351)) 
+
+### Fixed
+- Fix a bug that caused error in list pools command ([#331](https://github.com/Azure/batch-shipyard/issues/331))
+- Fix missing `condition` property for merge_task ([#336](https://github.com/Azure/batch-shipyard/issues/336))
+- Fix the handling of AllocationFailed errors 
+- Fix singularity multi-instance regression ([#342](https://github.com/Azure/batch-shipyard/issues/342))
+- Suppress possible failures in start task ([#341](https://github.com/Azure/batch-shipyard/issues/341))
+- Fix Singularity container creation failure ([#359](https://github.com/Azure/batch-shipyard/issues/359))
+- Fix cryptography installation error ([#362](https://github.com/Azure/batch-shipyard/issues/362))
+- Fix missing blobxfer on Windows on restart ([#358](https://github.com/Azure/batch-shipyard/issues/358))
+- Fix OpenFOAM recipe with autoscratch ([#349](https://github.com/Azure/batch-shipyard/issues/349))
+- Fix `--recreate` flag on jobs add with job schedule ([#345](https://github.com/Azure/batch-shipyard/issues/345))
+
+### Removed
+- Remove Support for Python 2.x
+- Remove Debian 9 host support
 
 ## [3.9.1] - 2019-12-13
 ### Added
@@ -1726,7 +1755,8 @@ transfer is disabled
 #### Added
 - Initial release
 
-[Unreleased]: https://github.com/Azure/batch-shipyard/compare/3.9.1...HEAD
+[Unreleased]: https://github.com/Azure/batch-shipyard/compare/4.0.0rc1...HEAD
+[4.0.0rc1]: https://github.com/openclosed-dev/batch-shipyard/compare/3.9.0...4.0.0rc1
 [3.9.1]: https://github.com/Azure/batch-shipyard/compare/3.9.0...3.9.1
 [3.9.0]: https://github.com/Azure/batch-shipyard/compare/3.8.2...3.9.0
 [3.8.2]: https://github.com/Azure/batch-shipyard/compare/3.8.1...3.8.2

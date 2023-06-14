@@ -1,6 +1,6 @@
 # Change Log
 
-## [4.0.0rc1] - 2022-06-14
+## [4.0.0rc1] - 2023-06-14
 ### Added
 - Add CentOS 7.8 and Debian 10 support
 - Add Ubuntu 20.04 Support ([#363](https://github.com/Azure/batch-shipyard/issues/363))

@@ -1,5 +1,9 @@
 # Change Log
 
+## [4.0.0rc2] - 2023-07-28
+### Changed
+- Update Docker CE to 20.10.24
+
 ## [4.0.0rc1] - 2023-06-14
 ### Added
 - Add CentOS 7.8 and Debian 10 support
@@ -1756,6 +1760,7 @@ transfer is disabled
 - Initial release
 
 [Unreleased]: https://github.com/Azure/batch-shipyard/compare/4.0.0rc1...HEAD
+[4.0.0rc2]: https://github.com/openclosed-dev/batch-shipyard/compare/4.0.0rc1...4.0.0rc2
 [4.0.0rc1]: https://github.com/openclosed-dev/batch-shipyard/compare/3.9.1...4.0.0rc1
 [3.9.1]: https://github.com/Azure/batch-shipyard/compare/3.9.0...3.9.1
 [3.9.0]: https://github.com/Azure/batch-shipyard/compare/3.8.2...3.9.0

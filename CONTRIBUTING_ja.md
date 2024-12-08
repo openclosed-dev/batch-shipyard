@@ -96,14 +96,14 @@ Azure Batchの開始タスクで使用されるため、少なくとも以下の
 次のコマンドを実行して shipyard-cargo イメージをビルドする。
 ```shell
 cd cargo
-docker image build <レジストリ名>/shipyard-cargo:<バージョン>
+docker image build <レジストリ名>/shipyard-cargo:<バージョン> .
 cd ..
 ```
 
 同様に次のコマンドを実行して shipyard-cascade イメージをビルドする。
 ```shell
 cd cascade
-docker image build -f Dockerfile.docker -t openclosed/shipyard-cascade:4.0.0-rc.2 .
+docker image build -f Dockerfile.docker -t <レジストリ名>/shipyard-cascade:<バージョン .
 cd ..
 ```
 
